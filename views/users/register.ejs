@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate') %>
+    <div class="container-md d-flex justify-content-center align-items-center mt-auto">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card shadow p-1 mb-5 bg-white rounded">
+                    <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Register </h5>
+                        <form action="/register" method="POST" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label" for="username">Username</label>
+                                <input class="form-control" type="text" id="username" name="username" required autofocus>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="email">Email Id</label>
+                                <input class="form-control" type="email" id="email" name="email" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="password">Password</label>
+                                <input class="form-control" type="password" id="password" name="password" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="d-grid mx-auto mb-3">
+                                <button class="btn btn-success btn-block">Register</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>

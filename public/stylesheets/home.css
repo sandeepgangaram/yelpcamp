@@ -1,0 +1,41 @@
+body{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url("https://images.unsplash.com/photo-1559521783-1d1599583485?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-size:cover;
+    background-position: center;
+}
+.cover-container{
+    max-width: 60vw;
+}
+
+.nav-link{
+    padding: 0.25em 0;
+    font-weight: 700;
+    color:rgba(255, 255, 255, 0.5);
+    margin-left:1rem;
+    border-bottom: 0.25em solid transparent;
+}
+
+.nav-link:hover{
+    color:rgba(255, 255, 255, 1.0);
+    border-bottom-color:rgba(255, 255, 255, 1.0);
+}
+.btn-secondary{
+    color:rgb(167, 164, 164);
+    text-shadow:none;
+    background-color:transparent;
+    border: 0.1rem solid white;
+}
+
+.btn-secondary:hover{
+    color:rgb(14, 13, 13);
+    text-shadow:none;
+    background-color:white;
+    border: 0.1rem solid white;
+}
+
+.nav-link.active{
+     color:white;
+     border-bottom-color: white;
+}
