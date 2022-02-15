@@ -145,7 +145,6 @@ app.use(
 app.use((req, res, next) => {
     // console.log(req.session)
     // console.log(req.originalUrl)
-    console.log(req.query)
     if (!['/login', '/'].includes(req.originalUrl)) {
         req.session.ReturnTo = req.originalUrl;
     }
@@ -181,7 +180,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Serving on ${port}`)
 })
