@@ -65,7 +65,7 @@ map.on("load", () => {
     filter: ["!", ["has", "point_count"]],
     paint: {
       "circle-color": "#11b4da",
-      "circle-radius": 6,
+      "circle-radius": 7,
       "circle-stroke-width": 1,
       "circle-stroke-color": "#fff",
     },
@@ -109,40 +109,32 @@ map.on("load", () => {
     new mapboxgl.Popup().setLngLat(coordinates).setHTML(popUpMarkup).addTo(map);
   });
 
-  // const popup = new mapboxgl.Popup({
-  //     closeButton: false,
-  //     closeOnClick: false
-  //     });
-  // map.on('mouseenter', 'unclustered-point', (e) => {
-  //     // Change the cursor style as a UI indicator.
-  //     map.getCanvas().style.cursor = 'pointer';
-
-  //     // Copy coordinates array.
-  //     const coordinates = e.features[0].geometry.coordinates.slice();
-  //     const {popUpMarkup} = e.features[0].properties
-
-  //     // Ensure that if the map is zoomed out such that multiple
-  //     // copies of the feature are visible, the popup appears
-  //     // over the copy being pointed to.
-  //     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-  //     }
-
-  //     // Populate the popup and set its coordinates
-  //     // based on the feature found.
-  //     popup.setLngLat(coordinates).setHTML(popUpMarkup).addTo(map);
-  //     });
-
-  //     map.on('mouseleave', 'unclustered-point', () => {
-  //     map.getCanvas().style.cursor = '';
-  //     popup.remove();
-  //     });
-  //     });
-
-  map.on("mouseenter", "clusters", () => {
-    map.getCanvas().style.cursor = "pointer";
+  const popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
   });
-  map.on("mouseleave", "clusters", () => {
+  map.on("mouseenter", "unclustered-point", (e) => {
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = "pointer";
+
+    // Copy coordinates array.
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { popUpMarkup } = e.features[0].properties;
+
+    // Ensure that if the map is zoomed out such that multiple
+    // copies of the feature are visible, the popup appears
+    // over the copy being pointed to.
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(coordinates).setHTML(popUpMarkup).addTo(map);
+  });
+
+  map.on("mouseleave", "unclustered-point", () => {
     map.getCanvas().style.cursor = "";
+    popup.remove();
   });
 });
