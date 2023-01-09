@@ -16,3 +16,4 @@
 - Cloud Image upload and retrieval using Multer, Cloudinary
 - Full CRUD functionality
 - Security using Helmet config
+- Map navigation and clustering using Mapbox
